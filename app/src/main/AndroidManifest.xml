@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapplication"
     xmlns:tools="http://schemas.android.com/tools"
     tools:replace="android:appComponentFactory"
     android:appComponentFactory="whateverString">
+
     <!-- 인터넷 연결 허용, useClear~: Http연결 허용 -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name="com.example.login.KakaoApplication"
+
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -29,6 +33,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".landmarkRecycle"
             android:exported="false">
@@ -36,6 +41,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".MypageActivity"
             android:exported="false">
@@ -43,6 +49,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".HomeActivity"
             android:exported="false">
@@ -50,8 +57,9 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.login.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,6 +70,20 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
+                <data
+                    android:host="oauth"
+                    android:scheme="@string/kakao_app_key" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

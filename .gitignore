@@ -170,4 +170,6 @@ fabric.properties
 
 !/gradle/wrapper/gradle-wrapper.jar
 
+credentials.json
+strings.xml
 # End of https://www.toptal.com/developers/gitignore/api/androidstudio,kotlin
