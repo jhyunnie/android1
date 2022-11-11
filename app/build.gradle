@@ -56,9 +56,9 @@ dependencies {
     //RoundedImageView
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
-    // google play service
+    /*// google play service
     implementation 'com.google.android.gms:play-services-auth:20.3.0'
-
+*/
 //Kakao SDK
     implementation "com.kakao.sdk:v2-user:2.8.3" // 카카오 로그인
     implementation "com.kakao.sdk:v2-talk:2.8.3" // 친구, 메시지(카카오톡)

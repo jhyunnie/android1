@@ -10,9 +10,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { 
-        url 'https://devrepo.kakao.com/nexus/content/groups/public/'
-        url 'https://naver.jfrog.io/artifactory/maven/'}
+        maven {
+            url 'https://devrepo.kakao.com/nexus/content/groups/public/'
+        }
+        maven {
+        url 'https://naver.jfrog.io/artifactory/maven/'
+        }
     }
 }
 rootProject.name = "My Application"

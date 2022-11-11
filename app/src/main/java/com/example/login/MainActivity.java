@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         //-------------------------KAKAO-------------------------------
         
         // 카카오 로그인 해시값 보기
-        //Log.d("GET_KEYHASH", getKeyHash());
+        Log.d("GET_KEYHASH", getKeyHash());
         
         // 카카오 로그인 버튼
         kakaobtn = (Button) findViewById(R.id.button);
@@ -111,10 +111,12 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "사용자 정보 요청 실패", meError);
             } else {
                 System.out.println("로그인 완료");
-                Log.i(TAG, user.toString());
-                {
+                Log.i(TAG, user.toString()); // 사용자 정보 객체로 표시
+                {// 구체적 정보
                     Log.i(TAG, "사용자 정보 요청 성공" +
                             "\n회원번호: "+user.getId() +
+                            "\n닉네임: "+user.getKakaoAccount().getProfile().getNickname() +
+                            "\n이미지: "+user.getKakaoAccount().getProfile().getProfileImageUrl() +
                             "\n이메일: "+user.getKakaoAccount().getEmail());
                 }
                 Account user1 = user.getKakaoAccount();
