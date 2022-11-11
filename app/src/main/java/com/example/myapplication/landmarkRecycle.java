@@ -9,6 +9,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,15 @@ public class landmarkRecycle extends AppCompatActivity {
             }
         });
 
+        TextView mapbutton = (TextView)findViewById(R.id.mapbtn);
+        mapbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),NaverMap.class);
+                startActivity(intent);
+            }
+        });
+
         //리싸이클뷰
         recyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
@@ -45,6 +55,8 @@ public class landmarkRecycle extends AppCompatActivity {
                 ,R.drawable.land2,4f));
         adapter.addItem(new LandMark("DDP","혼잡도","대한민국 서울특별시 중구에 위치한 복합 문화 공간이다"
                 ,R.drawable.land3,5f));
+        adapter.addItem(new LandMark("어린이대공원","혼잡도","시민여러분이 함게 가꾸고 즐기는 휴식공간이자 동식물이 행복하게 공존하는 생태공원입니다"
+                ,R.drawable.land4,5f));
         adapter.addItem(new LandMark("어린이대공원","혼잡도","시민여러분이 함게 가꾸고 즐기는 휴식공간이자 동식물이 행복하게 공존하는 생태공원입니다"
                 ,R.drawable.land4,5f));
 
