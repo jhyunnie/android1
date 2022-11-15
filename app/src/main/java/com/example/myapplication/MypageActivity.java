@@ -23,6 +23,7 @@ public class MypageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage);
 
+
         ImageView homebtn = (ImageView)findViewById(R.id.imageView15);
         String TAG = "마이페이지 정보";
 
