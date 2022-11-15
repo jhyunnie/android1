@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
     private void getUserInfo() {
         String TAG = "getUserInfo()";
         UserApiClient.getInstance().me((user, meError) -> {
+
             if (meError != null) {
                 Log.e(TAG, "사용자 정보 요청 실패", meError);
             } else {

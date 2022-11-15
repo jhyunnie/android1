@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +31,24 @@ public class LandmarkAdapter extends RecyclerView.Adapter<LandmarkAdapter.ViewHo
     public void onBindViewHolder(@NonNull LandmarkAdapter.ViewHolder holder, int position) {
         LandMark item = items.get(position);
         holder.setItem(item);
+
+        //리싸리클러뷰 클릭시 화면이동
+        holder.imageLandMark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int mPosition = holder.getAdapterPosition();
+                Context context = view.getContext();
+                Intent detailActivity = new Intent(context,Gwanghwamun.class);
+
+                detailActivity.putExtra("name",items.get(mPosition).getName());
+                detailActivity.putExtra("createdBy",items.get(mPosition).getCreatedBy());
+                detailActivity.putExtra("story",items.get(mPosition).getStory());
+
+                //((landmarkRecycle)context).startActivity(detailActivity);
+                view.getContext().startActivity(detailActivity);
+
+            }
+        });
     }
 
     @Override
