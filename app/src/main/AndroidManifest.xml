@@ -88,7 +88,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.login.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -114,6 +114,7 @@
                     android:scheme="kakao199bccdef624f00091e051cf8b686f78" />
             </intent-filter>
         </activity>
+        <activity android:name=".LandmarkList" />
     </application>
 
 </manifest>
