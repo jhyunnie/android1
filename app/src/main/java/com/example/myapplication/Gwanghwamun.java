@@ -24,6 +24,7 @@ import java.util.ArrayList;
 public class Gwanghwamun extends AppCompatActivity {
     private BarChart barChart;
     TextView detail_name,detail_name2,detail_story;
+    ImageView detail_img;
     String name, createdBy, story;
     int image;
     float rating;
@@ -40,8 +41,7 @@ public class Gwanghwamun extends AppCompatActivity {
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 
@@ -49,16 +49,19 @@ public class Gwanghwamun extends AppCompatActivity {
         detail_name = findViewById(R.id.detail_name);
         detail_name2 = findViewById(R.id.detail_name2);
         detail_story = findViewById(R.id.detail_story);
+        detail_img = findViewById(R.id.detail_img);
 
         Intent intent = getIntent();
 
         name = intent.getExtras().getString("name");
         createdBy = intent.getExtras().getString("createdBy");
         story = intent.getExtras().getString("story");
+        image = intent.getExtras().getInt("image");
 
         detail_name.setText(name);
         detail_name2.setText(name);
         detail_story.setText(story);
+        detail_img.setImageResource(image);
 
 
         //혼잡도 그래프

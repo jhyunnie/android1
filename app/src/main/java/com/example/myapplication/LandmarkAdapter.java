@@ -43,6 +43,7 @@ public class LandmarkAdapter extends RecyclerView.Adapter<LandmarkAdapter.ViewHo
                 detailActivity.putExtra("name",items.get(mPosition).getName());
                 detailActivity.putExtra("createdBy",items.get(mPosition).getCreatedBy());
                 detailActivity.putExtra("story",items.get(mPosition).getStory());
+                detailActivity.putExtra("image",items.get(mPosition).getImage());
 
                 //((landmarkRecycle)context).startActivity(detailActivity);
                 view.getContext().startActivity(detailActivity);

@@ -10,7 +10,6 @@
         android:id="@+id/layoutheader"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="#f0f0f0"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="10dp"
@@ -30,7 +29,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="지역"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:textStyle="bold"></TextView>
     </LinearLayout>
 
@@ -47,23 +46,25 @@
 
         <Button
             android:id="@+id/regionbtn1"
-            android:layout_width="100dp"
+            android:layout_width="95dp"
             android:layout_height="match_parent"
+            android:backgroundTint="@color/teal_700"
             android:text="서울"
             android:textSize="18sp"
+            android:textColor="@color/white"
             android:textStyle="bold">
         </Button>
         <Button
             android:id="@+id/regionbtn2"
-            android:layout_width="100dp"
+            android:layout_width="95dp"
             android:layout_height="match_parent"
-            android:text="경기"
+            android:text="경상"
             android:textSize="18sp"
             android:textStyle="bold">
         </Button>
         <Button
             android:id="@+id/regionbtn3"
-            android:layout_width="100dp"
+            android:layout_width="95dp"
             android:layout_height="match_parent"
             android:text="강원"
             android:textSize="18sp"
@@ -71,9 +72,9 @@
         </Button>
         <Button
             android:id="@+id/regionbtn4"
-            android:layout_width="100dp"
+            android:layout_width="95dp"
             android:layout_height="match_parent"
-            android:text="부산"
+            android:text="전남"
             android:textSize="18sp"
             android:textStyle="bold">
         </Button>
@@ -93,7 +94,5 @@
         app:layout_constraintTop_toBottomOf="@+id/regionheader"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="-134dp">
-
     </androidx.recyclerview.widget.RecyclerView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
