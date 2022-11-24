@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +21,11 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Gwanghwamun extends AppCompatActivity {
     private BarChart barChart;
@@ -29,21 +35,13 @@ public class Gwanghwamun extends AppCompatActivity {
     float rating;
     PieChart pieChart;
 
+    Call<List<LandmarkCongest>> landmarkCall;
+    private static final String urls = "http://10.0.2.2:5000/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gwanghwamun);
-
-        //뒤로가기 버튼
-        ImageView backbutton = (ImageView)findViewById(R.id.backbutton);
-        backbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
-                startActivity(intent);
-            }
-        });
 
         //리싸이클러뷰 불러오기
         detail_name = findViewById(R.id.detail_name);
@@ -61,7 +59,7 @@ public class Gwanghwamun extends AppCompatActivity {
         detail_story.setText(story);
 
 
-        //혼잡도 그래프
+        //혼잡도 그래프 : congestion 활용
         barChart =findViewById(R.id.barChart);
         ArrayList<BarEntry> congestion = new ArrayList<>();
 
@@ -82,36 +80,61 @@ public class Gwanghwamun extends AppCompatActivity {
         barChart.setFitBars(true);
         barChart.setData(barData);
 
-
-        //교통 데이터
+        //교통 데이터 // car, bus, person, truck 활용
         pieChart = (PieChart)findViewById(R.id.piechart);
 
-        pieChart.setUsePercentValues(true);
-        pieChart.getDescription().setEnabled(false);
-        pieChart.setExtraOffsets(5,10,5,5);
+        RetrofitClient retrofitClient = RetrofitClient.getInstance();
+        LandmarkAPI landmarkAPI = RetrofitClient.getLandmarkAPI();
 
-        pieChart.setDragDecelerationFrictionCoef(0.95f);
+        landmarkCall = landmarkAPI.getLandmarkInfo("yongsan");
+        landmarkCall.clone().enqueue(new Callback<List<LandmarkCongest>>() {
+            @Override
+            public void onResponse(Call<List<LandmarkCongest>> call, Response<List<LandmarkCongest>> response) {
+                if (response.isSuccessful()){
+                    List<LandmarkCongest> landmarkList = response.body();
+                    String TAG = "랜드마크 데이터 불러오기 실행";
 
-        pieChart.setDrawHoleEnabled(false);
-        pieChart.setHoleColor(Color.WHITE);
-        pieChart.setTransparentCircleRadius(61f);
+                    pieChart.setUsePercentValues(true);
+                    pieChart.getDescription().setEnabled(false);
+                    pieChart.setExtraOffsets(5,10,5,5);
 
-        ArrayList yValues = new ArrayList();
+                    pieChart.setDragDecelerationFrictionCoef(0.95f);
 
-        yValues.add(new PieEntry(15f,"Person"));
-        yValues.add(new PieEntry(50f,"Car"));
-        yValues.add(new PieEntry(30f,"Bus"));
-        yValues.add(new PieEntry(15f,"Truck"));
+                    pieChart.setDrawHoleEnabled(false);
+                    pieChart.setHoleColor(Color.WHITE);
+                    pieChart.setTransparentCircleRadius(61f);
 
-        PieDataSet dataSet = new PieDataSet(yValues,"Traffic");
-        dataSet.setSliceSpace(3f);
-        dataSet.setSelectionShift(5f);
-        dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+                    ArrayList yValues = new ArrayList();
 
-        PieData data = new PieData((dataSet));
-        data.setValueTextSize(10f);
-        data.setValueTextColor(Color.BLACK);
+                    // 15f, 50f, 30f, 15f
+                    yValues.add(new PieEntry(Float.parseFloat(landmarkList.get(0).getPerson()),"Person"));
+                    yValues.add(new PieEntry(Float.parseFloat(landmarkList.get(0).getCar()),"Car"));
+                    yValues.add(new PieEntry(Float.parseFloat(landmarkList.get(0).getBus()),"Bus"));
+                    yValues.add(new PieEntry(Float.parseFloat(landmarkList.get(0).getTruck()),"Truck"));
 
-        pieChart.setData(data);
+                    PieDataSet dataSet = new PieDataSet(yValues,"Traffic");
+                    dataSet.setSliceSpace(3f);
+                    dataSet.setSelectionShift(5f);
+                    dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+
+                    PieData data = new PieData((dataSet));
+                    data.setValueTextSize(10f);
+                    data.setValueTextColor(Color.BLACK);
+
+                    pieChart.setData(data);
+
+                    Log.d(TAG, "정상출력");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<LandmarkCongest>> call, Throwable t) {
+                Log.e("retrofit 연동", "실패");
+                t.printStackTrace();
+            }
+        });
+
+
+
     }
 }
