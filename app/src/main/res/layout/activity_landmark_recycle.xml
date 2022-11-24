@@ -72,6 +72,7 @@
             android:textStyle="bold"></TextView>
     </LinearLayout>
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
@@ -84,5 +85,6 @@
         app:layout_constraintTop_toBottomOf="@+id/sortheader">
 
     </androidx.recyclerview.widget.RecyclerView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

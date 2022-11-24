@@ -10,7 +10,7 @@
         android:id="@+id/layoutheader"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="#f0f0f0"
+        android:background="@color/white"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="10dp"
@@ -33,12 +33,7 @@
             android:textSize="20sp"
             android:textStyle="bold"></TextView>
 
-        <Button
-            android:id="@+id/bookmark"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="90dp"
-            android:background="@drawable/ic_bookmark" />
+
 
     </LinearLayout>
 
@@ -75,9 +70,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="이름"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginStart="10dp"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     />
 
@@ -86,18 +81,62 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="스토리"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="20dp"
                     android:textSize="16sp"
-
                     />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="#f0f0f0"
+                    >
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="현재 혼잡도"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="10dp"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:id="@+id/nowcongestion"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="20"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="10dp"
+                        android:textSize="22sp"
+                        android:textColor="@color/teal_700"
+                        android:textStyle="bold"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#f0f0f0"
+                >
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/textView9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="혼잡도 그래프"
+                    android:text="시간별 혼잡도"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
@@ -107,10 +146,17 @@
 
                 <com.github.mikephil.charting.charts.BarChart
                     android:id="@+id/barChart"
-                    android:layout_margin="20dp"
+                    android:layout_margin="30dp"
                     android:layout_width="match_parent"
                     android:layout_height="300dp">
                 </com.github.mikephil.charting.charts.BarChart>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#f0f0f0"
+                >
+            </LinearLayout>
 
                 <TextView
                     android:id="@+id/textView10"
@@ -126,9 +172,8 @@
 
                 <com.github.mikephil.charting.charts.PieChart
                     android:id="@+id/piechart"
-                    android:layout_margin="20dp"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp">
+                    android:layout_height="280dp">
                 </com.github.mikephil.charting.charts.PieChart>
 
             </LinearLayout>

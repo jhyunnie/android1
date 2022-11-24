@@ -31,6 +31,7 @@ public class MypageActivity extends AppCompatActivity {
         textView18 = findViewById(R.id.textView18);
         textView20 = findViewById(R.id.textView20);
         imageView4 = (ImageView) findViewById(R.id.imageView4);
+
         /*
         UserApiClient.getInstance().me((user, meError) ->{
             System.out.println("마이페이지 이동");
@@ -56,7 +57,7 @@ public class MypageActivity extends AppCompatActivity {
             }
             return null;
         });
-*/
+
             homebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +65,7 @@ public class MypageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+         */
 
     }
 }

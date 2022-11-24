@@ -44,6 +44,23 @@ public class LandmarkAdapter extends RecyclerView.Adapter<LandmarkAdapter.ViewHo
                 detailActivity.putExtra("createdBy",items.get(mPosition).getCreatedBy());
                 detailActivity.putExtra("story",items.get(mPosition).getStory());
                 detailActivity.putExtra("image",items.get(mPosition).getImage());
+                detailActivity.putExtra("landcongestion",items.get(mPosition).getLandcongestion());
+                detailActivity.putExtra("landcar",items.get(mPosition).getLandcar());
+                detailActivity.putExtra("landtruck",items.get(mPosition).getLandtruck());
+                detailActivity.putExtra("landperson",items.get(mPosition).getLandperson());
+                detailActivity.putExtra("bustest",items.get(mPosition).getBustest());
+
+                //시간별 혼잡도
+                detailActivity.putExtra("conges9",items.get(mPosition).getConges9());
+                detailActivity.putExtra("conges10",items.get(mPosition).getConges10());
+                detailActivity.putExtra("conges11",items.get(mPosition).getConges11());
+                detailActivity.putExtra("conges12",items.get(mPosition).getConges12());
+                detailActivity.putExtra("conges13",items.get(mPosition).getConges13());
+                detailActivity.putExtra("conges14",items.get(mPosition).getConges14());
+                detailActivity.putExtra("conges15",items.get(mPosition).getConges15());
+                detailActivity.putExtra("conges16",items.get(mPosition).getConges16());
+                detailActivity.putExtra("conges17",items.get(mPosition).getConges17());
+                detailActivity.putExtra("conges18",items.get(mPosition).getConges18());
 
                 //((landmarkRecycle)context).startActivity(detailActivity);
                 view.getContext().startActivity(detailActivity);

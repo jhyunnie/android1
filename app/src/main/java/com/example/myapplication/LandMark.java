@@ -2,15 +2,36 @@ package com.example.myapplication;
 
 public class LandMark {
     String name, createdBy, story;
+    String conges9,conges10,conges11,conges12,conges13,conges14,conges15,conges16,conges17,conges18;
+    String landcongestion,landcar, bustest, landtruck,landperson;
     int image;
     float rating;
 
-    public LandMark(String name, String createdBy, String story, int image, float rating) {
+    public LandMark(String name, String createdBy, String story, int image, float rating , String landcongestion ,String landcar
+    ,String bustest,String landtruck,String landperson , String conges9 ,String conges10
+            ,String conges11,String conges12,String conges13 , String conges14 ,String conges15
+            ,String conges16,String conges17,String conges18) {
         this.name = name;
         this.createdBy = createdBy;
         this.story = story;
         this.image = image;
         this.rating = rating;
+        this.landcongestion = landcongestion;
+        this.landcar = landcar;
+        this.landtruck = landtruck;
+        this.landperson = landperson;
+        this.bustest = bustest;
+
+        this.conges9 = conges9;
+        this.conges10 = conges10;
+        this.conges11 = conges11;
+        this.conges12 = conges12;
+        this.conges13 = conges13;
+        this.conges14 = conges14;
+        this.conges15 = conges15;
+        this.conges16 = conges16;
+        this.conges17 = conges17;
+        this.conges18 = conges18;
     }
 
     public String getName() {
@@ -51,5 +72,65 @@ public class LandMark {
 
     public void setRating(float rating) {
         this.rating = rating;
+    }
+
+    public String getLandcongestion() {
+        return landcongestion;
+    }
+
+    public String getLandcar() {
+        return landcar;
+    }
+
+    public String getLandtruck() {
+        return landtruck;
+    }
+
+    public String getLandperson() {
+        return landperson;
+    }
+
+    public String getBustest() {
+        return bustest;
+    }
+
+    public String getConges9() {
+        return conges9;
+    }
+
+    public String getConges10() {
+        return conges10;
+    }
+
+    public String getConges11() {
+        return conges11;
+    }
+
+    public String getConges12() {
+        return conges12;
+    }
+
+    public String getConges13() {
+        return conges13;
+    }
+
+    public String getConges14() {
+        return conges14;
+    }
+
+    public String getConges15() {
+        return conges15;
+    }
+
+    public String getConges16() {
+        return conges16;
+    }
+
+    public String getConges17() {
+        return conges17;
+    }
+
+    public String getConges18() {
+        return conges18;
     }
 }
