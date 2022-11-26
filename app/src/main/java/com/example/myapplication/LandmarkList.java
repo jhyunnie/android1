@@ -21,7 +21,7 @@ public class LandmarkList extends AppCompatActivity {
     private TextView textView3;
     private TextView textView4;
     //Call<Landmark> landmarkCall;
-    Call<List<LandmarkCongest>> landmarkCall;
+    Call<List<LandMark>> landmarkCall;
 
     private static final String urls = "http://10.0.2.2:5000/";
 
@@ -44,21 +44,20 @@ public class LandmarkList extends AppCompatActivity {
             public void onClick(View view) {
                 String TAG = "랜드마크 데이터 불러오기 실행";
                 landmarkCall = landmarkAPI.getLandmarkInfo("yongsan");
-                landmarkCall.clone().enqueue(new Callback<List<LandmarkCongest>>() {
+                landmarkCall.clone().enqueue(new Callback<List<LandMark>>() {
                     @Override
-                    public void onResponse(Call<List<LandmarkCongest>> call, Response<List<LandmarkCongest>> response) {
+                    public void onResponse(Call<List<LandMark>> call, Response<List<LandMark>> response) {
                         if (response.isSuccessful()){
-                            List<LandmarkCongest> landmarkList = response.body();
-                            carText.setText("자동차 : " + landmarkList.get(0).getCar());
-                            personText.setText("사람 : " + landmarkList.get(0).getPerson());
-                            textView3.setText("날짜 : " + landmarkList.get(0).getDate());
-                            textView4.setText("트럭 : " + landmarkList.get(0).getTruck());
+                            List<LandMark> landmarkList = response.body();
+                            carText.setText("자동차 : " + landmarkList.get(0).getLandcar());
+                            personText.setText("사람 : " + landmarkList.get(0).getLandperson());
+                            textView4.setText("트럭 : " + landmarkList.get(0).getLandtruck());
                             Log.d(TAG, "정상출력");
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<List<LandmarkCongest>> call, Throwable t) {
+                    public void onFailure(Call<List<LandMark>> call, Throwable t) {
                         Log.e("retrofit 연동", "실패");
                         t.printStackTrace();
                     }
