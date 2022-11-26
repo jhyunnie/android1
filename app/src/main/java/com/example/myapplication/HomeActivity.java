@@ -19,6 +19,7 @@ public class HomeActivity extends AppCompatActivity {
         ImageView myregion = (ImageView)findViewById(R.id.imageView9);
         ImageView myregion2 = (ImageView)findViewById(R.id.imageView18);
         ImageView myattraction = (ImageView)findViewById(R.id.imageView10);
+        ImageView myattraction2 = (ImageView)findViewById(R.id.imageView16);
         ImageView myboard = (ImageView)findViewById(R.id.imageView11);
         ImageView myboard2 = (ImageView)findViewById(R.id.imageView17);
 
@@ -54,6 +55,13 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         myattraction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Attractions.class);
+                startActivity(intent);
+            }
+        });
+        myattraction2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),Attractions.class);

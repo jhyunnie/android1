@@ -58,6 +58,66 @@ public class LandMark {
         this.story = story;
     }
 
+    public void setConges9(String conges9) {
+        this.conges9 = conges9;
+    }
+
+    public void setConges10(String conges10) {
+        this.conges10 = conges10;
+    }
+
+    public void setConges11(String conges11) {
+        this.conges11 = conges11;
+    }
+
+    public void setConges12(String conges12) {
+        this.conges12 = conges12;
+    }
+
+    public void setConges13(String conges13) {
+        this.conges13 = conges13;
+    }
+
+    public void setConges14(String conges14) {
+        this.conges14 = conges14;
+    }
+
+    public void setConges15(String conges15) {
+        this.conges15 = conges15;
+    }
+
+    public void setConges16(String conges16) {
+        this.conges16 = conges16;
+    }
+
+    public void setConges17(String conges17) {
+        this.conges17 = conges17;
+    }
+
+    public void setConges18(String conges18) {
+        this.conges18 = conges18;
+    }
+
+    public void setLandcongestion(String landcongestion) {
+        this.landcongestion = landcongestion;
+    }
+
+    public void setLandcar(String landcar) {
+        this.landcar = landcar;
+    }
+
+    public void setBustest(String bustest) {
+        this.bustest = bustest;
+    }
+
+    public void setLandtruck(String landtruck) {
+        this.landtruck = landtruck;
+    }
+
+    public void setLandperson(String landperson) {
+        this.landperson = landperson;
+    }
+
     public int getImage() {
         return image;
     }

@@ -23,8 +23,6 @@ public class MypageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage);
 
-
-        ImageView homebtn = (ImageView)findViewById(R.id.imageView15);
         String TAG = "마이페이지 정보";
 
         // 주소 가져오기
@@ -57,15 +55,41 @@ public class MypageActivity extends AppCompatActivity {
             }
             return null;
         });
+        */
+        ImageView homebtn = (ImageView)findViewById(R.id.imageView15);
+        ImageView myregion2 = (ImageView)findViewById(R.id.imageView18);
+        ImageView myattraction2 = (ImageView)findViewById(R.id.imageView16);
+        ImageView myboard2 = (ImageView)findViewById(R.id.imageView17);
 
-            homebtn.setOnClickListener(new View.OnClickListener() {
+        homebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
                 startActivity(intent);
             }
         });
-         */
+        myregion2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Region.class);
+                startActivity(intent);
+            }
+        });
+        myattraction2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Attractions.class);
+                startActivity(intent);
+            }
+        });
+        myboard2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Board.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }

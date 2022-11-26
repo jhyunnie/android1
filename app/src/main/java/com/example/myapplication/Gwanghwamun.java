@@ -11,18 +11,22 @@ import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
 public class Gwanghwamun extends AppCompatActivity {
     private BarChart barChart;
+    ArrayList<Integer> jsonList = new ArrayList<>(); // ArrayList 선언
+    ArrayList<String> labelList = new ArrayList<>(); // ArrayList 선언
     TextView detail_name,detail_name2,detail_story ,nowcongestion;
     ImageView detail_img;
     String name, createdBy, story;
@@ -108,8 +112,17 @@ public class Gwanghwamun extends AppCompatActivity {
         numcon17 = Integer.parseInt(con17);
         numcon18 = Integer.parseInt(con18);
 
-        //혼잡도 그래프
+
+        //그래프
         barChart =findViewById(R.id.barChart);
+        barChart.getAxisRight().setAxisMaximum(100);
+        barChart.getAxisLeft().setAxisMaximum(100);
+        barChart.getAxisLeft().setAxisMinimum(0);
+        barChart.getAxisRight().setAxisMinimum(0);
+        barChart.setDrawGridBackground(false);
+        barChart.setDrawBorders(false);
+        barChart.getDescription().setText("");
+        barChart.getXAxis().setDrawGridLines(false);
         ArrayList<BarEntry> congestion = new ArrayList<>();
 
         congestion.add(new BarEntry(9,numcon9));
@@ -123,14 +136,42 @@ public class Gwanghwamun extends AppCompatActivity {
         congestion.add(new BarEntry(17,numcon17));
         congestion.add(new BarEntry(18,numcon18));
 
-        BarDataSet barDataSet = new BarDataSet(congestion,"혼잡도");
+        BarDataSet barDataSet = new BarDataSet(congestion,"혼잡도 %");
         barDataSet.setColor(ColorTemplate.MATERIAL_COLORS[0]);
+        barDataSet.setValueTextColor(Color.BLACK);
+        barDataSet.setValueTextSize(13f);
+
+        BarData barData = new BarData(barDataSet);
+        barChart.setDrawGridBackground(false);
+        //barChart.setFitBars(true);
+        barChart.setData(barData);
+
+
+        //혼잡도 그래프
+        /*barChart =findViewById(R.id.barChart);
+        barChart.getAxisRight().setAxisMaximum(100);
+        barChart.getAxisRight().setAxisMinimum(0);
+        barChart.setDrawGridBackground(false);
+        //remove the bar shadow, default false if not set
+        barChart.setDrawBarShadow(false);
+        //remove border of the chart, default false if not set
+        barChart.setDrawBorders(false);
+        barChart.getDescription().setText("");
+
+
+
+
+
+        BarDataSet barDataSet = new BarDataSet(congestion,"혼잡도");
+        barDataSet.setColor(Color.parseColor("#304567"));
         barDataSet.setValueTextColor(Color.BLACK);
         barDataSet.setValueTextSize(13f);
 
         BarData barData = new BarData(barDataSet);
         barChart.setFitBars(true);
         barChart.setData(barData);
+        */
+
 
 
         //교통 데이터
@@ -164,4 +205,7 @@ public class Gwanghwamun extends AppCompatActivity {
 
         pieChart.setData(data);
     }
+
+
+
 }

@@ -79,6 +79,7 @@ public class LandmarkAdapter extends RecyclerView.Adapter<LandmarkAdapter.ViewHo
 
     public void setItems(ArrayList<LandMark> items) {
         this.items = items;
+        notifyDataSetChanged();
     }
 
     public LandMark getItem(int position) {

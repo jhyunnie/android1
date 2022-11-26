@@ -25,13 +25,34 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="관광지"
             android:textSize="20sp"
             android:textStyle="bold"></TextView>
+
+        <ImageView
+            android:id="@+id/sortimg"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:srcCompat="@drawable/ic_sort" />
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/searchfilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=" 관광지를 검색해 주세요."
+        android:layout_marginTop="5dp"
+        android:lines="1"
+        android:privateImeOptions="defaultInputmode=korean"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutheader">
+
+    </EditText>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -42,7 +63,7 @@
         android:padding="5dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutheader"
+        app:layout_constraintTop_toBottomOf="@+id/searchfilter"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="-134dp">
 

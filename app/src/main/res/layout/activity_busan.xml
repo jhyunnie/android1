@@ -25,12 +25,19 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="지역"
             android:textSize="20sp"
             android:textStyle="bold"></TextView>
+
+        <ImageView
+            android:id="@+id/sortimg"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:srcCompat="@drawable/ic_sort" />
+
+
     </LinearLayout>
 
     <LinearLayout
