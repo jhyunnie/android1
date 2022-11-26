@@ -1,9 +1,26 @@
 package com.example.myapplication;
 
+import com.google.gson.annotations.SerializedName;
+
 public class LandMark {
     String name, createdBy, story;
     String conges9,conges10,conges11,conges12,conges13,conges14,conges15,conges16,conges17,conges18;
-    String landcongestion,landcar, bustest, landtruck,landperson;
+
+    @SerializedName("congestion")
+    String landcongestion;
+
+    @SerializedName("car")
+    String landcar;
+
+    @SerializedName("bus")
+    String bustest;
+
+    @SerializedName("truck")
+    String landtruck;
+
+    @SerializedName("person")
+    String landperson;
+
     int image;
     float rating;
 
