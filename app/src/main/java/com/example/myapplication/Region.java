@@ -263,7 +263,7 @@ public class Region extends AppCompatActivity {
                             String.valueOf(landmarkCongestion[9]),
                             String.valueOf(landmarkCongestion[10])));
 
-                    /*// 동묘시장 : 11/27분 18시 이후에 실행가능
+                    // 동묘시장 : 11/27분 18시 이후에 실행가능
                     // 교통량
                     car = landMarkList.get(6).get(0).getLandcar();
                     bus = landMarkList.get(6).get(0).getBustest();
@@ -292,7 +292,7 @@ public class Region extends AppCompatActivity {
                             String.valueOf(landmarkCongestion[7]),
                             String.valueOf(landmarkCongestion[8]),
                             String.valueOf(landmarkCongestion[9]),
-                            String.valueOf(landmarkCongestion[10])));*/
+                            String.valueOf(landmarkCongestion[10])));
 
                     // 명동
                     // 교통량
