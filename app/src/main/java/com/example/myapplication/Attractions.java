@@ -15,7 +15,12 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Attractions extends AppCompatActivity {
     LandmarkAdapter adapter;
@@ -23,6 +28,9 @@ public class Attractions extends AppCompatActivity {
     ArrayList<LandMark> rList ,filteredList;
     ImageView sortimg;
     EditText searchfilter;
+
+    // Retrofit
+    private static final String urls = "http://10.0.2.2:5000/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +48,12 @@ public class Attractions extends AppCompatActivity {
 
         //리싸이클뷰
         recyclerView = findViewById(R.id.recyclerView);
+
+
         filteredList = new ArrayList<>();
 
         rList = new ArrayList<>();
+
         rList.add(new LandMark("경복궁","혼잡도","서울특별시 종로구 사직로 161 (세종로)[3]에 있는 조선시대의 궁궐 중 하나이자 조선의 정궁(법궁)이다"
                 ,R.drawable.gyeongbokgung,3f,"50","20","15","5","6",
                 "10","20","30","40","30","60","70","40","20","10"));
@@ -171,6 +182,19 @@ public class Attractions extends AppCompatActivity {
             }
         });
     }
-
+    private static float getRating(float rating, int congestion){
+        if (0 <= congestion && congestion < 10){
+            rating = 1f;
+        } else if (10 <= congestion && congestion < 30) {
+            rating = 2f;
+        } else if (30 <= congestion && congestion < 50) {
+            rating = 3f;
+        } else if (50 <= congestion && congestion < 75) {
+            rating = 4f;
+        } else{
+            rating = 5f;
+        }
+        return rating;
+    }
 
 }
